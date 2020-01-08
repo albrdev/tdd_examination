@@ -2,8 +2,8 @@
 #include "unity_fixture.h"
 #include "calculator.hpp"
 
-extern double INPUT_MINVALUE;
-extern double INPUT_MAXVALUE;
+extern double INPUTVALUE_MIN;
+extern double INPUTVALUE_MAX;
 
 TEST_GROUP(Calculator);
 
@@ -27,9 +27,9 @@ TEST(Calculator, ParseValue)
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue("123.456", result));
     TEST_ASSERT_EQUAL_DOUBLE(123.456, result);
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue("1", result));
-    TEST_ASSERT_EQUAL_DOUBLE(INPUT_MINVALUE + 1.0, result);
+    TEST_ASSERT_EQUAL_DOUBLE(INPUTVALUE_MIN + 1.0, result);
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue("999", result));
-    TEST_ASSERT_EQUAL_DOUBLE(INPUT_MAXVALUE - 1.0, result);
+    TEST_ASSERT_EQUAL_DOUBLE(INPUTVALUE_MAX - 1.0, result);
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue("0.000001", result));
     TEST_ASSERT_EQUAL_DOUBLE(0.000001, result);
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue("999.999", result));

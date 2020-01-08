@@ -12,8 +12,8 @@
 #define OPTION_SHORT_QUIT       "Q"
 #define OPTION_LONG_QUIT        "quit"
 
-double INPUT_MINVALUE = 0.0;
-double INPUT_MAXVALUE = 1000.0;
+double INPUTVALUE_MIN = 0.0;
+double INPUTVALUE_MAX = 1000.0;
 
 input::parseerror_t parseValue(const std::string& input, double& result)
 {
@@ -23,7 +23,7 @@ input::parseerror_t parseValue(const std::string& input, double& result)
         return status;
     }
 
-    return (result > INPUT_MINVALUE && result < INPUT_MAXVALUE) ? input::PE_NONE : input::PE_NUMERICRANGE;
+    return (result > INPUTVALUE_MIN && result < INPUTVALUE_MAX) ? input::PE_NONE : input::PE_NUMERICRANGE;
 }
 
 bool inputLengthAndWidth(double& lengthResult, double& widthResult)
