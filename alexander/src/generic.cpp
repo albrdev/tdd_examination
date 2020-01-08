@@ -15,6 +15,20 @@ int string::compareIgnoreCase(const std::string& a, const std::string& b)
     return a[i] - b[i];
 }
 
+static const char _whitespaceCharacters[] = " \t\v\n\r\f";
+std::string string::trimWhitespace(const std::string& str)
+{
+    std::size_t startPos = str.find_first_not_of(_whitespaceCharacters);
+    if(startPos == std::string::npos)
+    {
+        return std::string();
+    }
+
+    std::size_t endPos = str.find_last_not_of(_whitespaceCharacters);
+
+    return str.substr(startPos, (endPos - startPos) + 1);
+}
+
 static const std::map<std::string, double> _prefixMap =
 {
     { "k", 1000.0 },

@@ -7,6 +7,7 @@
 namespace string
 {
     int compareIgnoreCase(const std::string& a, const std::string& b);
+    std::string trimWhitespace(const std::string& str);
 }
 
 namespace input
