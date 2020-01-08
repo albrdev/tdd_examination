@@ -1,6 +1,16 @@
 #include "calculator.hpp"
+#include <cstdlib>
 #include <iostream>
 #include "geometry.h"
+
+#define OPTION_SHORT_PERIMETER  "P"
+#define OPTION_LONG_PERIMETER   "perimeter"
+#define OPTION_SHORT_AREA       "A"
+#define OPTION_LONG_AREA        "area"
+#define OPTION_SHORT_VOLUME     "V"
+#define OPTION_LONG_VOLUME      "volume"
+#define OPTION_SHORT_QUIT       "Q"
+#define OPTION_LONG_QUIT        "quit"
 
 const double INPUT_MINVALUE = 0.0;
 const double INPUT_MAXVALUE = 1000.0;
@@ -93,6 +103,7 @@ void printMainMenu(void)
     std::cout << " (P)erimeter" << std::endl;
     std::cout << " (A)rea" << std::endl;
     std::cout << " (V)olume" << std::endl;
+    std::cout << " (Q)uit" << std::endl;
 }
 
 void mainMenu(void)
@@ -107,17 +118,21 @@ void mainMenu(void)
         input = string::trimWhitespace(input);
     } while(input.empty());
 
-    if(string::compareIgnoreCase(input, "p") == 0 || string::compareIgnoreCase(input, "perimeter") == 0)
+    if(string::compareIgnoreCase(input, OPTION_SHORT_PERIMETER) == 0 || string::compareIgnoreCase(input, OPTION_LONG_PERIMETER) == 0)
     {
         calcPerimeter();
     }
-    else if(string::compareIgnoreCase(input, "a") == 0 || string::compareIgnoreCase(input, "area") == 0)
+    else if(string::compareIgnoreCase(input, OPTION_SHORT_AREA) == 0 || string::compareIgnoreCase(input, OPTION_LONG_AREA) == 0)
     {
         calcArea();
     }
-    else if(string::compareIgnoreCase(input, "v") == 0 || string::compareIgnoreCase(input, "volume") == 0)
+    else if(string::compareIgnoreCase(input, OPTION_SHORT_VOLUME) == 0 || string::compareIgnoreCase(input, OPTION_LONG_VOLUME) == 0)
     {
         calcVolume();
+    }
+    else if(string::compareIgnoreCase(input, OPTION_SHORT_QUIT) == 0 || string::compareIgnoreCase(input, OPTION_LONG_QUIT) == 0)
+    {
+        exit(EXIT_SUCCESS);
     }
     else
     {
