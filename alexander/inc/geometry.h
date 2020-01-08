@@ -6,8 +6,8 @@ extern "C"
 {
 #endif
 
-double getSquarePerimiter(const double x, const double y);
-double getSquareArea(const double x, const double y);
+double getRectanglePerimiter(const double x, const double y);
+double getRectangleArea(const double x, const double y);
 double getCuboidVolume(const double x, const double y, const double z);
 
 #ifdef __cplusplus

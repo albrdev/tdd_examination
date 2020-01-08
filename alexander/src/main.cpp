@@ -35,7 +35,7 @@ void calcPerimiter(void)
         return;
     }
 
-    std::cout << "Result: " << getSquarePerimiter(length, width) << std::endl;
+    std::cout << "Result: " << getRectanglePerimiter(length, width) << std::endl;
 }
 
 void calcArea(void)
@@ -46,7 +46,7 @@ void calcArea(void)
         return;
     }
 
-    std::cout << "Result: " << getSquarePerimiter(length, width) << std::endl;
+    std::cout << "Result: " << getRectanglePerimiter(length, width) << std::endl;
 }
 
 void calcVolume(void)
