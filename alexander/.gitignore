@@ -1,3 +1,4 @@
 obj/*.o
 bin/tdd_examination
+bin/tdd_examination.out
 bin/tdd_examination.exe

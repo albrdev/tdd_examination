@@ -42,7 +42,7 @@ debug: mkdirs $(TRG_BIN)
 .PHONY: clean
 clean:
 	$(CMD_RM) $(DIR_OBJ)/*.o
-	$(CMD_RM) $(TRG_BIN) $(patsubst %,%.exe,$(TRG_BIN))
+	$(CMD_RM) $(TRG_BIN) $(patsubst %,%.out,$(TRG_BIN)) $(patsubst %,%.exe,$(TRG_BIN))
 
 .PHONY: test
 test:
