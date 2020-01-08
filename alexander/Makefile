@@ -81,6 +81,9 @@ $(DIR_OBJ)/main.o: $(DIR_SRC)/main.cpp
 	$(CC_CPP) $(CC_FLAGS) -I$(DIR_INC) -c $< -o $@
 
 # Objects
+$(DIR_OBJ)/calculator.o: $(DIR_SRC)/calculator.cpp $(DIR_INC)/calculator.hpp
+	$(CC_CPP) $(CC_FLAGS) -I$(DIR_INC) -c $< -o $@
+
 $(DIR_OBJ)/generic.o: $(DIR_SRC)/generic.cpp $(DIR_INC)/generic.hpp
 	$(CC_CPP) $(CC_FLAGS) -I$(DIR_INC) -c $< -o $@
 
