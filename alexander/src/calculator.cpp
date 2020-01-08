@@ -71,7 +71,7 @@ void calcArea(void)
         return;
     }
 
-    std::cout << "Result: " << getRectanglePerimeter(length, width) << std::endl;
+    std::cout << "Result: " << getRectangleArea(length, width) << std::endl;
 }
 
 void calcVolume(void)
