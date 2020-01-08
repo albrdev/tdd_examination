@@ -118,19 +118,23 @@ void mainMenu(void)
         input = string::trimWhitespace(input);
     } while(input.empty());
 
-    if(string::compareIgnoreCase(input, OPTION_SHORT_PERIMETER) == 0 || string::compareIgnoreCase(input, OPTION_LONG_PERIMETER) == 0)
+    if(string::compareIgnoreCase(input, OPTION_SHORT_PERIMETER) == 0 ||
+       string::compareIgnoreCase(input, OPTION_LONG_PERIMETER) == 0)
     {
         calcPerimeter();
     }
-    else if(string::compareIgnoreCase(input, OPTION_SHORT_AREA) == 0 || string::compareIgnoreCase(input, OPTION_LONG_AREA) == 0)
+    else if(string::compareIgnoreCase(input, OPTION_SHORT_AREA) == 0 ||
+            string::compareIgnoreCase(input, OPTION_LONG_AREA) == 0)
     {
         calcArea();
     }
-    else if(string::compareIgnoreCase(input, OPTION_SHORT_VOLUME) == 0 || string::compareIgnoreCase(input, OPTION_LONG_VOLUME) == 0)
+    else if(string::compareIgnoreCase(input, OPTION_SHORT_VOLUME) == 0 ||
+            string::compareIgnoreCase(input, OPTION_LONG_VOLUME) == 0)
     {
         calcVolume();
     }
-    else if(string::compareIgnoreCase(input, OPTION_SHORT_QUIT) == 0 || string::compareIgnoreCase(input, OPTION_LONG_QUIT) == 0)
+    else if(string::compareIgnoreCase(input, OPTION_SHORT_QUIT) == 0 ||
+            string::compareIgnoreCase(input, OPTION_LONG_QUIT) == 0)
     {
         exit(EXIT_SUCCESS);
     }
