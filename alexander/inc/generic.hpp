@@ -19,7 +19,6 @@ namespace input
         PE_NUMERICRANGE = 1
     } parseerror_t;
 
-    input::parseerror_t parseInt(const std::string& str, int& result);
     input::parseerror_t parseDouble(const std::string& str, double& result, std::string& remaining);
     input::parseerror_t parsePrefixedDouble(const std::string& str, double& result);
 

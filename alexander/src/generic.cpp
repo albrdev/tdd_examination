@@ -39,25 +39,6 @@ static const std::map<std::string, double> _prefixMap =
 #endif /* __NAMESPACE_STRING__ */
 
 #ifndef __NAMESPACE_INPUT__
-input::parseerror_t input::parseInt(const std::string& str, int& result)
-{
-    std::size_t charPos = 0;
-    try
-    {
-        result = std::stoi(str, &charPos);
-    }
-    catch(const std::invalid_argument & e)
-    {
-        return PE_INVALID;
-    }
-    catch(const std::out_of_range & e)
-    {
-        return PE_NUMERICRANGE;
-    }
-
-    return PE_NONE;
-}
-
 input::parseerror_t input::parseDouble(const std::string& str, double& result, std::string& remaining)
 {
     std::size_t charPos = 0;
