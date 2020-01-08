@@ -82,12 +82,15 @@ void mainMenu(void)
     printMainMenu();
 
     std::string input;
-    std::cout << "> ";
-    if(!input::readString(input))
+    do
     {
-        std::cerr << "Invalid input" << std::endl;
-        return;
-    }
+        std::cout << "> ";
+        if(!input::readString(input))
+        {
+            std::cerr << "Invalid input" << std::endl;
+            return;
+        }
+    } while(input.empty());
 
     if(string::compareIgnoreCase(input, "p") == 0 || string::compareIgnoreCase(input, "perimeter") == 0)
     {
