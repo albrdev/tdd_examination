@@ -6,7 +6,7 @@ extern "C"
 {
 #endif
 
-double getRectanglePerimiter(const double x, const double y);
+double getRectanglePerimeter(const double x, const double y);
 double getRectangleArea(const double x, const double y);
 double getCuboidVolume(const double x, const double y, const double z);
 

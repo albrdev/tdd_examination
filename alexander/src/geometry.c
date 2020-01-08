@@ -1,6 +1,6 @@
 #include "geometry.h"
 
-double getRectanglePerimiter(const double x, const double y)
+double getRectanglePerimeter(const double x, const double y)
 {
     return (x * 2.0) + (y * 2.0);
 }

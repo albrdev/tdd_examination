@@ -27,7 +27,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
     return true;
 }
 
-void calcPerimiter(void)
+void calcPerimeter(void)
 {
     double length, width;
     if(!inputLengthAndWidth(length, width))
@@ -35,7 +35,7 @@ void calcPerimiter(void)
         return;
     }
 
-    std::cout << "Result: " << getRectanglePerimiter(length, width) << std::endl;
+    std::cout << "Result: " << getRectanglePerimeter(length, width) << std::endl;
 }
 
 void calcArea(void)
@@ -46,7 +46,7 @@ void calcArea(void)
         return;
     }
 
-    std::cout << "Result: " << getRectanglePerimiter(length, width) << std::endl;
+    std::cout << "Result: " << getRectanglePerimeter(length, width) << std::endl;
 }
 
 void calcVolume(void)
@@ -91,7 +91,7 @@ void mainMenu(void)
 
     if(string::compareIgnoreCase(input, "p") == 0 || string::compareIgnoreCase(input, "perimeter") == 0)
     {
-        calcPerimiter();
+        calcPerimeter();
     }
     else if(string::compareIgnoreCase(input, "a") == 0 || string::compareIgnoreCase(input, "area") == 0)
     {
