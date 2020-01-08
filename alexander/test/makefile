@@ -31,6 +31,7 @@ SOURCE_ROOT=..
 CFLAGS=-std=c++11
 CFLAGS += -Wall
 CFLAGS += -Wextra
+CFLAGS += -Wconversion
 CFLAGS += -Wpointer-arith
 CFLAGS += -Wcast-align
 CFLAGS += -Wwrite-strings
