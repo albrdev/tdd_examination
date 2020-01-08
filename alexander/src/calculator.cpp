@@ -12,8 +12,8 @@
 #define OPTION_SHORT_QUIT       "Q"
 #define OPTION_LONG_QUIT        "quit"
 
-const double INPUT_MINVALUE = 0.0;
-const double INPUT_MAXVALUE = 1000.0;
+double INPUT_MINVALUE = 0.0;
+double INPUT_MAXVALUE = 1000.0;
 
 input::parseerror_t parseValue(const std::string& input, double& result)
 {
