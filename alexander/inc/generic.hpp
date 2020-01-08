@@ -14,8 +14,8 @@ namespace input
 {
     typedef enum
     {
-        PE_NONE = 0,
-        PE_INVALID = -1,
+        PE_NONE         = 0,
+        PE_INVALID      = -1,
         PE_NUMERICRANGE = 1
     } parseerror_t;
 
