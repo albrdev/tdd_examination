@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "calculator.hpp"
+#include "generic.hpp"
 
 int main(int argc, char* argv[])
 {
