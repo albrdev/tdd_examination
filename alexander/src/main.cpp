@@ -3,8 +3,8 @@
 #include "generic.hpp"
 #include "geometry.h"
 
-#define INPUT_MINVALUE  0.0
-#define INPUT_MAXVALUE  1000.0
+const double INPUT_MINVALUE = 0.0;
+const double INPUT_MAXVALUE = 1000.0;
 
 bool inputLengthAndWidth(double& lengthResult, double& widthResult)
 {
