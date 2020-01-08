@@ -59,7 +59,7 @@ vars:
 	$(CMD_PRINT) "Executable:   " $(TRG_BIN)
 
 .PHONY: run
-run: all
+run: test all
 	./$(TRG_BIN) $(args)
 
 .PHONY: mkdirs
