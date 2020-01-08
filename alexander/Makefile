@@ -50,13 +50,14 @@ test:
 
 .PHONY: vars
 vars:
-	$(CMD_PRINT) "C compiler:   " $(CC_C) $(CC_FLAGS) -I$(DIR_INC) $(CC_LIBS)
-	$(CMD_PRINT) "C++ compiler: " $(CC_CPP) $(CC_FLAGS) -I$(DIR_INC) $(CC_LIBS)
-	$(CMD_PRINT) "C sources:    " $(SRCS_C)
-	$(CMD_PRINT) "C objects:    " $(OBJS_C)
-	$(CMD_PRINT) "C++ sources:  " $(SRCS_CPP)
-	$(CMD_PRINT) "C++ objects:  " $(OBJS_CPP)
-	$(CMD_PRINT) "Executable:   " $(TRG_BIN)
+	$(CMD_PRINT) "C compiler:       " $(CC_C)
+	$(CMD_PRINT) "C++ compiler:     " $(CC_CPP)
+	$(CMD_PRINT) "Compiler flags:   " $(CC_FLAGS) -I$(DIR_INC) $(CC_LIBS)
+	$(CMD_PRINT) "C sources:        " $(SRCS_C)
+	$(CMD_PRINT) "C objects:        " $(OBJS_C)
+	$(CMD_PRINT) "C++ sources:      " $(SRCS_CPP)
+	$(CMD_PRINT) "C++ objects:      " $(OBJS_CPP)
+	$(CMD_PRINT) "Executable:       " $(TRG_BIN)
 
 .PHONY: run
 run: test all
