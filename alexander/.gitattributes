@@ -1,6 +1,5 @@
 .gitignore      text eol=lf
 .gitattributes  text eol=lf
-.gitmodules     text eol=lf
 
 [mM]akefile     text eol=lf
 *.md            text eol=lf
