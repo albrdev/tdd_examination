@@ -3,7 +3,7 @@ APP_BIN		:= tdd_examination
 CC_C		:= gcc -std=c99
 CC_CPP		:= g++ -std=c++11
 CC_FLAGS	:= -pedantic -Wall -Wextra -Wconversion
-CC_LIBS		:= -lm
+CC_LIBS		:= 
 
 FLAGS_DBG	:= -g -Wno-unused-parameter
 FLAGS_RLS	:= -DNDEBUG
