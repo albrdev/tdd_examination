@@ -101,36 +101,6 @@ input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& r
     return PE_NONE;
 }
 
-bool input::readString(std::string& result)
-{
-    getline(std::cin, result);
-    if(!std::cin)
-    {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return false;
-    }
-
-    return true;
-}
-
-input::parseerror_t input::readPrefixedDouble(double& result, const double min, const double max)
-{
-    std::string input;
-    if(!readString(input))
-    {
-        return PE_INVALID;
-    }
-
-    parseerror_t status;
-    if((status = parsePrefixedDouble(input, result)) != PE_NONE)
-    {
-        return status;
-    }
-
-    return (result > min&& result < max) ? PE_NONE : PE_NUMERICRANGE;
-}
-
 std::string input::getParseErrorMessage(const input::parseerror_t id)
 {
     switch(id)

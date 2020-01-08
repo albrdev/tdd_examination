@@ -6,19 +6,33 @@
 const double INPUT_MINVALUE = 0.0;
 const double INPUT_MAXVALUE = 1000.0;
 
+input::parseerror_t parseValue(const std::string& input, double& result)
+{
+    input::parseerror_t status;
+    if((status = input::parsePrefixedDouble(input, result)) != input::PE_NONE)
+    {
+        return status;
+    }
+
+    return (result > INPUT_MINVALUE && result < INPUT_MAXVALUE) ? input::PE_NONE : input::PE_NUMERICRANGE;
+}
+
 bool inputLengthAndWidth(double& lengthResult, double& widthResult)
 {
+    std::string input;
     input::parseerror_t status;
 
     std::cout << "Input length: ";
-    if((status = input::readPrefixedDouble(lengthResult, INPUT_MINVALUE, INPUT_MAXVALUE)) != input::PE_NONE)
+    std::getline(std::cin, input);
+    if((status = parseValue(input, lengthResult)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getParseErrorMessage(status) << std::endl;
         return false;
     }
 
-    std::cout << "Input height: ";
-    if((status = input::readPrefixedDouble(widthResult, INPUT_MINVALUE, INPUT_MAXVALUE)) != input::PE_NONE)
+    std::cout << "Input width: ";
+    std::getline(std::cin, input);
+    if((status = parseValue(input, widthResult)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getParseErrorMessage(status) << std::endl;
         return false;
@@ -57,9 +71,11 @@ void calcVolume(void)
         return;
     }
 
+    std::string input;
     input::parseerror_t status;
     std::cout << "Input height: ";
-    if((status = input::readPrefixedDouble(height, INPUT_MINVALUE, INPUT_MAXVALUE)) != input::PE_NONE)
+    std::getline(std::cin, input);
+    if((status = parseValue(input, height)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getParseErrorMessage(status);
         return;
@@ -85,11 +101,8 @@ void mainMenu(void)
     do
     {
         std::cout << "> ";
-        if(!input::readString(input))
-        {
-            std::cerr << "Invalid input" << std::endl;
-            return;
-        }
+        std::getline(std::cin, input);
+        input = string::trimWhitespace(input);
     } while(input.empty());
 
     if(string::compareIgnoreCase(input, "p") == 0 || string::compareIgnoreCase(input, "perimeter") == 0)

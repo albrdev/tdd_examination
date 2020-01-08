@@ -23,9 +23,6 @@ namespace input
     input::parseerror_t parseDouble(const std::string& str, double& result, std::string& remaining);
     input::parseerror_t parsePrefixedDouble(const std::string& str, double& result);
 
-    bool readString(std::string& result);
-    input::parseerror_t readPrefixedDouble(double& result, const double min, const double max);
-
     std::string getParseErrorMessage(const input::parseerror_t id);
 }
 
