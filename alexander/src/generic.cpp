@@ -83,7 +83,7 @@ input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& r
     return PE_NONE;
 }
 
-std::string input::getParseErrorMessage(const input::parseerror_t id)
+std::string input::getErrorMessage(const input::parseerror_t id)
 {
     switch(id)
     {

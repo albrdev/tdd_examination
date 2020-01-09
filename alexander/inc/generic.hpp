@@ -22,7 +22,7 @@ namespace input
     input::parseerror_t parseDouble(const std::string& str, double& result, std::string& remaining);
     input::parseerror_t parsePrefixedDouble(const std::string& str, double& result);
 
-    std::string getParseErrorMessage(const input::parseerror_t id);
+    std::string getErrorMessage(const input::parseerror_t id);
 }
 
 #endif /* __GENERIC_HPP__ */

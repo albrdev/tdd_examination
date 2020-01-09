@@ -36,7 +36,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
     input = string::trimWhitespace(input);
     if((status = parseValue(input, lengthResult)) != input::PE_NONE)
     {
-        std::cerr << "*** Error: " << input::getParseErrorMessage(status) << std::endl;
+        std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
         return false;
     }
 
@@ -45,7 +45,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
     input = string::trimWhitespace(input);
     if((status = parseValue(input, widthResult)) != input::PE_NONE)
     {
-        std::cerr << "*** Error: " << input::getParseErrorMessage(status) << std::endl;
+        std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
         return false;
     }
 
@@ -89,7 +89,7 @@ void calcVolume(void)
     input = string::trimWhitespace(input);
     if((status = parseValue(input, height)) != input::PE_NONE)
     {
-        std::cerr << "*** Error: " << input::getParseErrorMessage(status);
+        std::cerr << "*** Error: " << input::getErrorMessage(status);
         return;
     }
 
