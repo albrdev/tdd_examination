@@ -3,7 +3,8 @@
 static void RunAllTests(void)
 {
     RUN_TEST_GROUP(Geometry);
-    RUN_TEST_GROUP(NamespaceString); 
+    RUN_TEST_GROUP(NamespaceString);
+    RUN_TEST_GROUP(NamespaceInput);
     RUN_TEST_GROUP(Calculator);
 }
 

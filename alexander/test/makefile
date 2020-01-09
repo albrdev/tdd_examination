@@ -57,6 +57,8 @@ SRC_FILES=\
   ./runners/TestGeometry_Runner.c \
   ./TestNamespaceString.cpp \
   ./runners/TestNamespaceString_Runner.cpp \
+  ./TestNamespaceInput.cpp \
+  ./runners/TestNamespaceInput_Runner.cpp \
   ./TestCalculator.cpp \
   ./runners/TestCalculator_Runner.cpp \
   ./runners/all_tests.cpp
