@@ -3,6 +3,7 @@
 
 double getRectanglePerimeter(const double x, const double y)
 {
+    // Check for invalid values and set errno accordingly.
     if (x <= 0.0 || y <= 0.0)
     {
         errno = ERANGE;
@@ -14,6 +15,7 @@ double getRectanglePerimeter(const double x, const double y)
 
 double getRectangleArea(const double x, const double y)
 {
+    // Check for invalid values and set errno accordingly.
     if (x <= 0.0 || y <= 0.0)
     {
         errno = ERANGE;
@@ -25,6 +27,7 @@ double getRectangleArea(const double x, const double y)
 
 double getCuboidVolume(const double x, const double y, const double z)
 {
+    // Check for invalid values and set errno accordingly.
     if (x <= 0.0 || y <= 0.0 || z <= 0.0)
     {
         errno = ERANGE;

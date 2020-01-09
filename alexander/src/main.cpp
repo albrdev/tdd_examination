@@ -5,10 +5,12 @@
 
 int main(int argc, char* argv[])
 {
+    // Set floating-point precision and fixed decimal output.
     std::cout.precision(2);
     std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
 
-    while (1)
+    // Main loop
+    while (true)
     {
         mainMenu();
         std::cout << std::endl;

@@ -24,6 +24,7 @@ input::parseerror_t parseValue(const std::string& input, double& result)
         return status;
     }
 
+    // Return success if value is within our custom range, otherwise return error code.
     return (result > INPUTVALUE_MIN && result < INPUTVALUE_MAX) ? input::PE_NONE : input::PE_NUMERICRANGE;
 }
 
@@ -36,6 +37,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
 
+    // Parse double value and apply possible prefix.
     if ((status = parseValue(input, lengthResult)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
@@ -46,6 +48,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
 
+    // Parse double value and apply possible prefix.
     if ((status = parseValue(input, widthResult)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
@@ -90,10 +93,12 @@ void calcVolume(void)
 
     std::string input;
     input::parseerror_t status;
+
     std::cout << "Input height: ";
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
 
+    // Parse double value and apply possible prefix.
     if ((status = parseValue(input, height)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status);
@@ -123,8 +128,9 @@ void mainMenu(void)
         std::cout << "> ";
         std::getline(std::cin, input);
         input = string::trimWhitespace(input);
-    } while (input.empty());
+    } while (input.empty()); // Ask for input til we get any.
 
+    // Check if input is any of the possible option strings or its shorthand (case-insensitive).
     if (string::compareIgnoreCase(input, OPTION_SHORT_PERIMETER) == 0 ||
        string::compareIgnoreCase(input, OPTION_LONG_PERIMETER) == 0)
     {
