@@ -35,7 +35,7 @@ void inputLengthAndHeight(double& lengthResult, double& heightResult)
 
     do
     {
-        std::cout << "Input length: ";
+        std::cout << "Length: ";
         std::getline(std::cin, input);
         input = string::trimWhitespace(input);
 
@@ -53,7 +53,7 @@ void inputLengthAndHeight(double& lengthResult, double& heightResult)
 
     do
     {
-        std::cout << "Input height: ";
+        std::cout << "Height: ";
         std::getline(std::cin, input);
         input = string::trimWhitespace(input);
 
@@ -103,7 +103,7 @@ void calcVolume(void)
         std::string input;
         input::parseerror_t status;
 
-        std::cout << "Input width: ";
+        std::cout << "Width: ";
         std::getline(std::cin, input);
         input = string::trimWhitespace(input);
 
