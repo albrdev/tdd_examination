@@ -62,6 +62,9 @@ TEST(NamespaceInput, ParseDouble)
     TEST_ASSERT_EQUAL(input::PE_NONE, input::parseDouble("-1.0test", result, remaining));
     TEST_ASSERT_EQUAL_DOUBLE(-1.0, result);
     TEST_ASSERT_EQUAL_STRING("test", remaining.c_str());
+    TEST_ASSERT_EQUAL(input::PE_NONE, input::parseDouble(".1.", result, remaining));
+    TEST_ASSERT_EQUAL_DOUBLE(0.1, result);
+    TEST_ASSERT_EQUAL_STRING(".", remaining.c_str());
     TEST_ASSERT_EQUAL(input::PE_NONE, input::parseDouble("1 \t\v\n\r\f", result, remaining));
     TEST_ASSERT_EQUAL_DOUBLE(1.0, result);
     TEST_ASSERT_EQUAL_STRING(" \t\v\n\r\f", remaining.c_str());
@@ -72,7 +75,6 @@ TEST(NamespaceInput, ParseDouble)
     // Test random invalid (numeric) strings.
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble(".", result, remaining));
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble("-", result, remaining));
-    TEST_ASSERT_EQUAL(input::PE_NONE, input::parseDouble(".1.", result, remaining));
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble("t", result, remaining));
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble("test", result, remaining));
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble("t1", result, remaining));
