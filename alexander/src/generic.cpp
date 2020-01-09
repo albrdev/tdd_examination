@@ -1,3 +1,10 @@
+/*! main.cpp
+    Main source file for this application.
+    \file   main.cpp
+    \author albrdev (albrdev@gmail.com)
+    \date   2020-01-08
+*/
+
 #include "generic.hpp"
 #include <map>
 #include <limits>

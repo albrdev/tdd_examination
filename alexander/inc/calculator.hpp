@@ -1,3 +1,10 @@
+/*! calculator.hpp
+    Contains refactored helper functions intended just for this application.
+    \file   calculator.hpp
+    \author albrdev (albrdev@gmail.com)
+    \date   2020-01-08
+*/
+
 #ifndef __CALCULATOR_HPP__
 #define __CALCULATOR_HPP__
 

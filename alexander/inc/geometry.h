@@ -1,3 +1,10 @@
+/*! geometry.hpp
+    Contains functions for geometry calculations.
+    \file   geometry.hpp
+    \author albrdev (albrdev@gmail.com)
+    \date   2020-01-08
+*/
+
 #ifndef __GEOMETRY_H__
 #define __GEOMETRY_H__
 

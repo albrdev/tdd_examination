@@ -1,3 +1,10 @@
+/*! generic.hpp
+    Contains generic string and input helper functions.
+    \file   generic.hpp
+    \author albrdev (albrdev@gmail.com)
+    \date   2020-01-08
+*/
+
 #ifndef __GENERIC_HPP__
 #define __GENERIC_HPP__
 
