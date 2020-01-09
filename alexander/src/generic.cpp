@@ -6,12 +6,9 @@
 #ifndef __NAMESPACE_STRING__
 int string::compareIgnoreCase(const std::string& a, const std::string& b)
 {
-    size_t i = 0;
+    std::size_t i;
 
-    while ((a[i] != '\0' && b[i] != '\0') && tolower(a[i]) == tolower(b[i]))
-    {
-        i++;
-    }
+    for (i = 0; (a[i] != '\0' && b[i] != '\0') && tolower(a[i]) == tolower(b[i]); i++);
 
     return a[i] - b[i];
 }
