@@ -117,7 +117,7 @@ void calcVolume(void)
         {
             break;
         }
-    } while(true);
+    } while (true);
 
     std::cout << "Result: " << getCuboidVolume(length, height, width) << std::endl;
 }
