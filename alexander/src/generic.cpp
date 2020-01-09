@@ -7,6 +7,7 @@
 int string::compareIgnoreCase(const std::string& a, const std::string& b)
 {
     size_t i = 0;
+
     while ((a[i] != '\0' && b[i] != '\0') && tolower(a[i]) == tolower(b[i]))
     {
         i++;
@@ -19,6 +20,7 @@ static const char _whitespaceCharacters[] = " \t\v\n\r\f";
 std::string string::trimWhitespace(const std::string& str)
 {
     std::size_t startPos = str.find_first_not_of(_whitespaceCharacters);
+
     if (startPos == std::string::npos)
     {
         return std::string();
@@ -42,6 +44,7 @@ static const std::map<std::string, double> _prefixMap =
 input::parseerror_t input::parseDouble(const std::string& str, double& result, std::string& remaining)
 {
     std::size_t charPos = 0;
+
     try
     {
         result = std::stod(str, &charPos);
@@ -56,19 +59,23 @@ input::parseerror_t input::parseDouble(const std::string& str, double& result, s
     }
 
     remaining = str.substr(charPos);
+
     return PE_NONE;
 }
 
 input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& result)
 {
     std::string remaining;
+
     parseerror_t status = parseDouble(str, result, remaining);
+
     if (status != PE_NONE)
     {
         return status;
     }
 
     remaining = string::trimWhitespace(remaining);
+
     if (!remaining.empty())
     {
         std::map<std::string, double>::const_iterator iter = _prefixMap.find(remaining);
