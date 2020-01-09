@@ -28,7 +28,7 @@ input::parseerror_t parseValue(const std::string& input, double& result)
     return (result > INPUTVALUE_MIN && result < INPUTVALUE_MAX) ? input::PE_NONE : input::PE_NUMERICRANGE;
 }
 
-bool inputLengthAndWidth(double& lengthResult, double& widthResult)
+bool inputLengthAndHeight(double& lengthResult, double& heightResult)
 {
     std::string input;
     input::parseerror_t status;
@@ -44,12 +44,12 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
         return false;
     }
 
-    std::cout << "Input width: ";
+    std::cout << "Input height: ";
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
 
     // Parse double value and apply possible prefix.
-    if ((status = parseValue(input, widthResult)) != input::PE_NONE)
+    if ((status = parseValue(input, heightResult)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
         return false;
@@ -60,33 +60,37 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
 
 void calcPerimeter(void)
 {
-    double length, width;
+    double length;
+    double height;
 
-    if (!inputLengthAndWidth(length, width))
+    if (!inputLengthAndHeight(length, height))
     {
         return;
     }
 
-    std::cout << "Result: " << getRectanglePerimeter(length, width) << std::endl;
+    std::cout << "Result: " << getRectanglePerimeter(length, height) << std::endl;
 }
 
 void calcArea(void)
 {
-    double length, width;
+    double length;
+    double height;
 
-    if (!inputLengthAndWidth(length, width))
+    if (!inputLengthAndHeight(length, height))
     {
         return;
     }
 
-    std::cout << "Result: " << getRectangleArea(length, width) << std::endl;
+    std::cout << "Result: " << getRectangleArea(length, height) << std::endl;
 }
 
 void calcVolume(void)
 {
-    double length, width, height;
+    double length;
+    double height;
+    double width;
 
-    if (!inputLengthAndWidth(length, width))
+    if (!inputLengthAndHeight(length, height))
     {
         return;
     }
@@ -94,18 +98,18 @@ void calcVolume(void)
     std::string input;
     input::parseerror_t status;
 
-    std::cout << "Input height: ";
+    std::cout << "Input width: ";
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
 
     // Parse double value and apply possible prefix.
-    if ((status = parseValue(input, height)) != input::PE_NONE)
+    if ((status = parseValue(input, width)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status);
         return;
     }
 
-    std::cout << "Result: " << getCuboidVolume(length, width, height) << std::endl;
+    std::cout << "Result: " << getCuboidVolume(length, height, width) << std::endl;
 }
 
 void printMainMenu(void)
