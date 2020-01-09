@@ -27,14 +27,6 @@ std::string string::trimWhitespace(const std::string& str)
 
     return str.substr(startPos, (endPos - startPos) + 1);
 }
-
-static const std::map<std::string, double> PREFIX_MAP =
-{
-    { "k", 1000.0 },
-    { "d", 0.1 },
-    { "c", 0.01 },
-    { "m", 0.001 }
-};
 #endif /* __NAMESPACE_STRING__ */
 
 #ifndef __NAMESPACE_INPUT__
@@ -59,6 +51,14 @@ input::parseerror_t input::parseDouble(const std::string& str, double& result, s
 
     return PE_NONE;
 }
+
+static const std::map<std::string, double> PREFIX_MAP =
+{
+    { "k", 1000.0 },
+    { "d", 0.1 },
+    { "c", 0.01 },
+    { "m", 0.001 }
+};
 
 input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& result)
 {
