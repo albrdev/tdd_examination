@@ -7,7 +7,7 @@
 int string::compareIgnoreCase(const std::string& a, const std::string& b)
 {
     size_t i = 0;
-    while((a[i] != '\0' && b[i] != '\0') && tolower(a[i]) == tolower(b[i]))
+    while ((a[i] != '\0' && b[i] != '\0') && tolower(a[i]) == tolower(b[i]))
     {
         i++;
     }
@@ -19,7 +19,7 @@ static const char _whitespaceCharacters[] = " \t\v\n\r\f";
 std::string string::trimWhitespace(const std::string& str)
 {
     std::size_t startPos = str.find_first_not_of(_whitespaceCharacters);
-    if(startPos == std::string::npos)
+    if (startPos == std::string::npos)
     {
         return std::string();
     }
@@ -46,11 +46,11 @@ input::parseerror_t input::parseDouble(const std::string& str, double& result, s
     {
         result = std::stod(str, &charPos);
     }
-    catch(const std::invalid_argument & e)
+    catch (const std::invalid_argument & e)
     {
         return PE_INVALID;
     }
-    catch(const std::out_of_range & e)
+    catch (const std::out_of_range & e)
     {
         return PE_NUMERICRANGE;
     }
@@ -63,16 +63,16 @@ input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& r
 {
     std::string remaining;
     parseerror_t status = parseDouble(str, result, remaining);
-    if(status != PE_NONE)
+    if (status != PE_NONE)
     {
         return status;
     }
 
     remaining = string::trimWhitespace(remaining);
-    if(!remaining.empty())
+    if (!remaining.empty())
     {
         std::map<std::string, double>::const_iterator iter = _prefixMap.find(remaining);
-        if(iter == _prefixMap.cend())
+        if (iter == _prefixMap.cend())
         {
             return PE_INVALID;
         }
@@ -85,7 +85,7 @@ input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& r
 
 std::string input::getErrorMessage(const input::parseerror_t id)
 {
-    switch(id)
+    switch (id)
     {
         case PE_NONE:
             return "No error";

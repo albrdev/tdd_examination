@@ -18,7 +18,7 @@ double INPUTVALUE_MAX = 1000.0;
 input::parseerror_t parseValue(const std::string& input, double& result)
 {
     input::parseerror_t status;
-    if((status = input::parsePrefixedDouble(input, result)) != input::PE_NONE)
+    if ((status = input::parsePrefixedDouble(input, result)) != input::PE_NONE)
     {
         return status;
     }
@@ -34,7 +34,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
     std::cout << "Input length: ";
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
-    if((status = parseValue(input, lengthResult)) != input::PE_NONE)
+    if ((status = parseValue(input, lengthResult)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
         return false;
@@ -43,7 +43,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
     std::cout << "Input width: ";
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
-    if((status = parseValue(input, widthResult)) != input::PE_NONE)
+    if ((status = parseValue(input, widthResult)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
         return false;
@@ -55,7 +55,7 @@ bool inputLengthAndWidth(double& lengthResult, double& widthResult)
 void calcPerimeter(void)
 {
     double length, width;
-    if(!inputLengthAndWidth(length, width))
+    if (!inputLengthAndWidth(length, width))
     {
         return;
     }
@@ -66,7 +66,7 @@ void calcPerimeter(void)
 void calcArea(void)
 {
     double length, width;
-    if(!inputLengthAndWidth(length, width))
+    if (!inputLengthAndWidth(length, width))
     {
         return;
     }
@@ -77,7 +77,7 @@ void calcArea(void)
 void calcVolume(void)
 {
     double length, width, height;
-    if(!inputLengthAndWidth(length, width))
+    if (!inputLengthAndWidth(length, width))
     {
         return;
     }
@@ -87,7 +87,7 @@ void calcVolume(void)
     std::cout << "Input height: ";
     std::getline(std::cin, input);
     input = string::trimWhitespace(input);
-    if((status = parseValue(input, height)) != input::PE_NONE)
+    if ((status = parseValue(input, height)) != input::PE_NONE)
     {
         std::cerr << "*** Error: " << input::getErrorMessage(status);
         return;
@@ -116,24 +116,24 @@ void mainMenu(void)
         std::cout << "> ";
         std::getline(std::cin, input);
         input = string::trimWhitespace(input);
-    } while(input.empty());
+    } while (input.empty());
 
-    if(string::compareIgnoreCase(input, OPTION_SHORT_PERIMETER) == 0 ||
+    if (string::compareIgnoreCase(input, OPTION_SHORT_PERIMETER) == 0 ||
        string::compareIgnoreCase(input, OPTION_LONG_PERIMETER) == 0)
     {
         calcPerimeter();
     }
-    else if(string::compareIgnoreCase(input, OPTION_SHORT_AREA) == 0 ||
+    else if (string::compareIgnoreCase(input, OPTION_SHORT_AREA) == 0 ||
             string::compareIgnoreCase(input, OPTION_LONG_AREA) == 0)
     {
         calcArea();
     }
-    else if(string::compareIgnoreCase(input, OPTION_SHORT_VOLUME) == 0 ||
+    else if (string::compareIgnoreCase(input, OPTION_SHORT_VOLUME) == 0 ||
             string::compareIgnoreCase(input, OPTION_LONG_VOLUME) == 0)
     {
         calcVolume();
     }
-    else if(string::compareIgnoreCase(input, OPTION_SHORT_QUIT) == 0 ||
+    else if (string::compareIgnoreCase(input, OPTION_SHORT_QUIT) == 0 ||
             string::compareIgnoreCase(input, OPTION_LONG_QUIT) == 0)
     {
         exit(EXIT_SUCCESS);

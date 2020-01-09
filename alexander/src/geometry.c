@@ -3,7 +3,7 @@
 
 double getRectanglePerimeter(const double x, const double y)
 {
-    if(x <= 0.0 || y <= 0.0)
+    if (x <= 0.0 || y <= 0.0)
     {
         errno = ERANGE;
         return -1.0;
@@ -14,7 +14,7 @@ double getRectanglePerimeter(const double x, const double y)
 
 double getRectangleArea(const double x, const double y)
 {
-    if(x <= 0.0 || y <= 0.0)
+    if (x <= 0.0 || y <= 0.0)
     {
         errno = ERANGE;
         return -1.0;
@@ -25,7 +25,7 @@ double getRectangleArea(const double x, const double y)
 
 double getCuboidVolume(const double x, const double y, const double z)
 {
-    if(x <= 0.0 || y <= 0.0 || z <= 0.0)
+    if (x <= 0.0 || y <= 0.0 || z <= 0.0)
     {
         errno = ERANGE;
         return -1.0;
