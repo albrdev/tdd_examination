@@ -13,22 +13,22 @@ int string::compareIgnoreCase(const std::string& a, const std::string& b)
     return a[i] - b[i];
 }
 
-static const char _whitespaceCharacters[] = " \t\v\n\r\f";
+static const char WHITESPACE_CHARACTERS[] = " \t\v\n\r\f";
 std::string string::trimWhitespace(const std::string& str)
 {
-    std::size_t startPos = str.find_first_not_of(_whitespaceCharacters);
+    std::size_t startPos = str.find_first_not_of(WHITESPACE_CHARACTERS);
 
     if (startPos == std::string::npos)
     {
         return std::string();
     }
 
-    std::size_t endPos = str.find_last_not_of(_whitespaceCharacters);
+    std::size_t endPos = str.find_last_not_of(WHITESPACE_CHARACTERS);
 
     return str.substr(startPos, (endPos - startPos) + 1);
 }
 
-static const std::map<std::string, double> _prefixMap =
+static const std::map<std::string, double> PREFIX_MAP =
 {
     { "k", 1000.0 },
     { "d", 0.1 },
@@ -75,8 +75,8 @@ input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& r
 
     if (!remaining.empty())
     {
-        std::map<std::string, double>::const_iterator iter = _prefixMap.find(remaining);
-        if (iter == _prefixMap.cend())
+        std::map<std::string, double>::const_iterator iter = PREFIX_MAP.find(remaining);
+        if (iter == PREFIX_MAP.cend())
         {
             return PE_INVALID;
         }
