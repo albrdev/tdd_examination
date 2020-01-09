@@ -42,6 +42,8 @@ TEST(Calculator, ParseValue)
     TEST_ASSERT_EQUAL_DOUBLE(1.0, result);
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue(" 1", result));
     TEST_ASSERT_EQUAL_DOUBLE(1.0, result);
+    TEST_ASSERT_EQUAL(input::PE_NONE, parseValue(" 1 ", result));
+    TEST_ASSERT_EQUAL_DOUBLE(1.0, result);
 
     // Test prefixed valid numeric strings.
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue("0.1k", result));
@@ -81,7 +83,6 @@ TEST(Calculator, ParseValue)
     TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue("-1t", result));
     TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue("-1.0t", result));
     TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue("t1", result));
-    TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue(" 1 ", result));
 
     // Test empty and whitespace strings.
     TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue(" ", result));
