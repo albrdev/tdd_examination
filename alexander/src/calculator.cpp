@@ -49,7 +49,7 @@ void inputLengthAndHeight(double& lengthResult, double& heightResult)
         {
             break;
         }
-    } while (true);
+    } while (true); // Loop until we have a valid number
 
     do
     {
@@ -67,7 +67,7 @@ void inputLengthAndHeight(double& lengthResult, double& heightResult)
         {
             break;
         }
-    } while (true);
+    } while (true); // Loop until we have a valid number
 }
 
 void calcPerimeter(void)
@@ -117,7 +117,7 @@ void calcVolume(void)
         {
             break;
         }
-    } while (true);
+    } while (true); // Loop until we have a valid number
 
     std::cout << "Result: " << getCuboidVolume(length, height, width) << std::endl;
 }
