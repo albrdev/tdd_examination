@@ -68,6 +68,7 @@ input::parseerror_t input::parsePrefixedDouble(const std::string& str, double& r
         return status;
     }
 
+    remaining = string::trimWhitespace(remaining);
     if(!remaining.empty())
     {
         std::map<std::string, double>::const_iterator iter = _prefixMap.find(remaining);
