@@ -5,10 +5,13 @@
 extern double INPUTVALUE_MIN;
 extern double INPUTVALUE_MAX;
 
+static double result;
+
 TEST_GROUP(Calculator);
 
 TEST_SETUP(Calculator)
 {
+    result = 0.0;
 }
 
 TEST_TEAR_DOWN(Calculator)
@@ -17,8 +20,6 @@ TEST_TEAR_DOWN(Calculator)
 
 TEST(Calculator, ParseValue)
 {
-    double result;
-
     // Test random valid numeric strings.
     TEST_ASSERT_EQUAL(input::PE_NONE, parseValue("10", result));
     TEST_ASSERT_EQUAL_DOUBLE(10.0, result);
