@@ -80,7 +80,7 @@ TEST(NamespaceInput, ParseDouble)
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble("t1", result, remaining));
 
     // Test empty and whitespace strings.
-    TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble(" ", result, remaining));
+    TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble(" \t\v\n\r\f", result, remaining));
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parseDouble("", result, remaining));
 }
 
@@ -125,6 +125,6 @@ TEST(NamespaceInput, ParsePrefixedDouble)
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parsePrefixedDouble("t1", result));
 
     // Test empty and whitespace strings.
-    TEST_ASSERT_EQUAL(input::PE_INVALID, input::parsePrefixedDouble(" ", result));
+    TEST_ASSERT_EQUAL(input::PE_INVALID, input::parsePrefixedDouble(" \t\v\n\r\f", result));
     TEST_ASSERT_EQUAL(input::PE_INVALID, input::parsePrefixedDouble("", result));
 }

@@ -86,6 +86,6 @@ TEST(Calculator, ParseValue)
     TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue("t1", result));
 
     // Test empty and whitespace strings.
-    TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue(" ", result));
+    TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue(" \t\v\n\r\f", result));
     TEST_ASSERT_EQUAL(input::PE_INVALID, parseValue("", result));
 }
