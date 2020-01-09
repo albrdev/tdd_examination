@@ -26,11 +26,14 @@ namespace string
 
 namespace input
 {
+     /*! \enum parseerror_t
+         Enum constants containing error codes for string parsing.
+     */
     typedef enum
     {
-        PE_NONE         = 0,
-        PE_INVALID      = -1,
-        PE_NUMERICRANGE = 1
+        PE_NONE         = 0,    /*!< No error has occured. */
+        PE_INVALID      = -1,   /*!< Invalid character(s) in input. */
+        PE_NUMERICRANGE = 1     /*!< Number is out of range of a given type. */
     } parseerror_t;
 
     /*! parseDouble()
