@@ -28,34 +28,46 @@ input::parseerror_t parseValue(const std::string& input, double& result)
     return (result > INPUTVALUE_MIN && result < INPUTVALUE_MAX) ? input::PE_NONE : input::PE_NUMERICRANGE;
 }
 
-bool inputLengthAndHeight(double& lengthResult, double& heightResult)
+void inputLengthAndHeight(double& lengthResult, double& heightResult)
 {
     std::string input;
     input::parseerror_t status;
 
-    std::cout << "Input length: ";
-    std::getline(std::cin, input);
-    input = string::trimWhitespace(input);
-
-    // Parse double value and apply possible prefix.
-    if ((status = parseValue(input, lengthResult)) != input::PE_NONE)
+    do
     {
-        std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
-        return false;
-    }
+        std::cout << "Input length: ";
+        std::getline(std::cin, input);
+        input = string::trimWhitespace(input);
 
-    std::cout << "Input height: ";
-    std::getline(std::cin, input);
-    input = string::trimWhitespace(input);
+        // Parse double value and apply possible prefix.
+        if ((status = parseValue(input, lengthResult)) != input::PE_NONE)
+        {
+            std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    } while (true);
 
-    // Parse double value and apply possible prefix.
-    if ((status = parseValue(input, heightResult)) != input::PE_NONE)
+    do
     {
-        std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
-        return false;
-    }
+        std::cout << "Input height: ";
+        std::getline(std::cin, input);
+        input = string::trimWhitespace(input);
 
-    return true;
+        // Parse double value and apply possible prefix.
+        if ((status = parseValue(input, heightResult)) != input::PE_NONE)
+        {
+            std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    } while (true);
 }
 
 void calcPerimeter(void)
@@ -63,10 +75,7 @@ void calcPerimeter(void)
     double length;
     double height;
 
-    if (!inputLengthAndHeight(length, height))
-    {
-        return;
-    }
+    inputLengthAndHeight(length, height);
 
     std::cout << "Result: " << getRectanglePerimeter(length, height) << std::endl;
 }
@@ -76,10 +85,7 @@ void calcArea(void)
     double length;
     double height;
 
-    if (!inputLengthAndHeight(length, height))
-    {
-        return;
-    }
+    inputLengthAndHeight(length, height);
 
     std::cout << "Result: " << getRectangleArea(length, height) << std::endl;
 }
@@ -90,24 +96,28 @@ void calcVolume(void)
     double height;
     double width;
 
-    if (!inputLengthAndHeight(length, height))
+    inputLengthAndHeight(length, height);
+
+    do
     {
-        return;
-    }
+        std::string input;
+        input::parseerror_t status;
 
-    std::string input;
-    input::parseerror_t status;
+        std::cout << "Input width: ";
+        std::getline(std::cin, input);
+        input = string::trimWhitespace(input);
 
-    std::cout << "Input width: ";
-    std::getline(std::cin, input);
-    input = string::trimWhitespace(input);
-
-    // Parse double value and apply possible prefix.
-    if ((status = parseValue(input, width)) != input::PE_NONE)
-    {
-        std::cerr << "*** Error: " << input::getErrorMessage(status);
-        return;
-    }
+        // Parse double value and apply possible prefix.
+        if ((status = parseValue(input, width)) != input::PE_NONE)
+        {
+            std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
+            continue;
+        }
+        else
+        {
+            break;
+        }
+    } while(true);
 
     std::cout << "Result: " << getCuboidVolume(length, height, width) << std::endl;
 }

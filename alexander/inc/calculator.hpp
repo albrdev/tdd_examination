@@ -30,7 +30,7 @@ input::parseerror_t parseValue(const std::string& input, double& result);
     \param[out] heightResult    The resulting value for height.
     \return                     N/A
 */
-bool inputLengthAndHeight(double& lengthResult, double& heightResult);
+void inputLengthAndHeight(double& lengthResult, double& heightResult);
 
 /*! calcPerimeter()
     Asks for input for length and height, then calculates and prints the rectangle perimeter based on those values.
