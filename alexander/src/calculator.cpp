@@ -33,7 +33,7 @@ void inputLengthAndHeight(double& lengthResult, double& heightResult)
     std::string input;
     input::parseerror_t status;
 
-    do
+    while (true) // Loop until we have a valid number
     {
         std::cout << "Length: ";
         std::getline(std::cin, input);
@@ -43,15 +43,14 @@ void inputLengthAndHeight(double& lengthResult, double& heightResult)
         if ((status = parseValue(input, lengthResult)) != input::PE_NONE)
         {
             std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
-            continue;
         }
         else
         {
             break;
         }
-    } while (true); // Loop until we have a valid number
+    }
 
-    do
+    while (true) // Loop until we have a valid number
     {
         std::cout << "Height: ";
         std::getline(std::cin, input);
@@ -61,13 +60,12 @@ void inputLengthAndHeight(double& lengthResult, double& heightResult)
         if ((status = parseValue(input, heightResult)) != input::PE_NONE)
         {
             std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
-            continue;
         }
         else
         {
             break;
         }
-    } while (true); // Loop until we have a valid number
+    }
 }
 
 void calcPerimeter(void)
@@ -98,7 +96,7 @@ void calcVolume(void)
 
     inputLengthAndHeight(length, height);
 
-    do
+    while (true) // Loop until we have a valid number
     {
         std::string input;
         input::parseerror_t status;
@@ -111,13 +109,12 @@ void calcVolume(void)
         if ((status = parseValue(input, width)) != input::PE_NONE)
         {
             std::cerr << "*** Error: " << input::getErrorMessage(status) << std::endl;
-            continue;
         }
         else
         {
             break;
         }
-    } while (true); // Loop until we have a valid number
+    }
 
     std::cout << "Result: " << getCuboidVolume(length, height, width) << std::endl;
 }
